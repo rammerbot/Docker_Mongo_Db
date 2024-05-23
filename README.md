@@ -17,8 +17,11 @@ ___________________________________________________________________________
 
 ## Editar archivo
 
-``` nano docker-compose.yml ```
+```
+nano docker-compose.yml
+```
 
+```
 version: '2.2'
 services:
   frontend:
@@ -37,90 +40,134 @@ services:
 volumes:
   monguitodata:
   monguitologs:
+```
     
 ____________________________
-paso 3. Crear el Ejecutable:
+## paso 3. Crear el Ejecutable:
 
-> touch mongo.sh
+```
+touch mongo.sh
+```
 
 ____________________________________________________
-Paso 4. copiar los comando en el archivo ejecutable:
+## Paso 4. copiar los comando en el archivo ejecutable:
 
-> nano mongo.sh   	# entrar y editar el archivo con los siguientes comandos:
+### entrar y editar el archivo con los siguientes comandos:
+```
+nano mongo.sh
+```   	
 
+```
 !/bin/bash
 
-# Verificar si el directorio monguitodata ya existe
+#Verificar si el directorio monguitodata ya existe
 if [ ! -d "monguitodata" ]; then
     # Crear carpeta para volumen de mongo
     mkdir -p monguitodata/log
 fi
 
-# Cambiar al directorio del script
+#Cambiar al directorio del script
 cd "$(dirname "$0")"
 
-# Verificar si el archivo docker-compose.yml existe
+#Verificar si el archivo docker-compose.yml existe
 if [ ! -f "docker-compose.yml" ]; then
     echo "Error: El archivo docker-compose.yml no existe en este directorio."
     exit 1
 fi
 
-# Iniciar el contenedor
+#Iniciar el contenedor
 sudo docker-compose up -d
+```
 
 _________________________________________________________
-Paso 6. Asignar permisos de ejecución y ejecutar mongo.sh.
+## Paso 6. Asignar permisos de ejecución y ejecutar mongo.sh.
 
-> chmod u+x mongo.sh
- 
+```
+chmod u+x mongo.sh
+```
+
 ____________________________________________________________________
-Paso 7. Crear contenedor de mongo con el archivo docker-compose.yml. 
+## Paso 7. Crear contenedor de mongo con el archivo docker-compose.yml. 
 
-> sudo docker-compose up -d
+```
+sudo docker-compose up -d
+```
 
 __________________________________________________________________________________________________________________________
-Paso 8. Crear directorios si no existen para el volumen, levantar y entrar en el contenedor usando el ejecutable mongo.sh.
+## Paso 8. Crear directorios si no existen para el volumen, levantar y entrar en el contenedor usando el ejecutable mongo.sh.
 
-# usar cualquiera de estos dos comandos para ejecutar el archivo.
+### usar cualquiera de estos dos comandos para ejecutar el archivo.
 
-> ./mongo.sh
-> source mongo.sh
+```
+./mongo.sh
+```
+
+#### or
+
+```
+source mongo.sh
+```
 
 ________________________
-Paso 9. login en docker.
+## Paso 9. login en docker.
 
-> docker login  #ingresar tus credenciales
+```
+docker login  #ingresar tus credenciales
+```
 
 __________________________
-Paso 10. Crear Dockerfile.
+## Paso 10. Crear Dockerfile.
 
-> touch Dockerfile
-> nano Dockerfile
+```
+touch Dockerfile
+```
+```
+nano Dockerfile
+```
 
-# escribir el script para crear la imagen basado en los archivos del contenedor
+### escribir el script para crear la imagen basado en los archivos del contenedor
 
-# Usa una imagen base oficial de MongoDB
+```
+#Usa una imagen base oficial de MongoDB
 FROM mongo:latest
 
-# Copia el script mongo.sh en el contenedor
+#Copia el script mongo.sh en el contenedor
 COPY mongo.sh /docker-entrypoint-initdb.d/
 
-# Da permisos de ejecución al script
+#Da permisos de ejecución al script
 RUN chmod +x /docker-entrypoint-initdb.d/mongo.sh
 
-# Comando por defecto para iniciar MongoDB
+#Comando por defecto para iniciar MongoDB
 CMD ["mongod"]
-
+```
 ____________________________________________
-Paso 11. Crear imagen en base al contenedor.
+## Paso 11. Crear imagen en base al contenedor.
 
-# reemplazar TU_USUARIO_DE_DOCKER por el usuario de duckerhub
+### reemplazar TU_USUARIO_DE_DOCKER por el usuario de duckerhub
 
->docker build -t TU_USUARIO_DE_DOCKER/mongo_tarea:tarea_henry . 
+```
+docker build -t TU_USUARIO_DE_DOCKER/mongo_tarea:tarea_henry . 
+```
 
 ____________________________________________________
-Paso 12. Cargar imagen al repositorio de docker hub.
+## Paso 12. Cargar imagen al repositorio de docker hub.
 
-# reemplazar TU_USUARIO_DE_DOCKER por el usuario de duckerhub
+### reemplazar TU_USUARIO_DE_DOCKER por el usuario de duckerhub
 
->docker push TU_USUARIO_DE_DOCKER/mongo_tarea:tarea_henry
+```
+docker push TU_USUARIO_DE_DOCKER/mongo_tarea:tarea_henry
+```
+_____________________________
+## Elaborado por:
+
+### Rammer Gomez: RammerBot
+
+### GitHub:
+
+```
+https://github.com/rammerbot
+```
+### LinkDin
+```
+https://www.linkedin.com/in/rammer-gomez/
+```
