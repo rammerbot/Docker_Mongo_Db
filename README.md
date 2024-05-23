@@ -7,11 +7,15 @@ Opción 1 windows o mac.
 > Usar docker compose, visual estudio code, instalando la extensión de docker.
 
 Opción 2 en linux.
-
-> touch docker-compose.yml #crear archivo
-> nano docker-compose.yml  # Editar archivo
+#crear archivo
+> touch docker-compose.yml 
+ 
 ___________________________________________________________________________
 Paso 2. Editar el archivo docker-compose.yml y colocar el siguiente script:
+
+# Editar archivo
+
+> nano docker-compose.yml 
 
 version: '2.2'
 services:
