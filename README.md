@@ -8,10 +8,11 @@ _____________________________________________
 
 ### Opción 2 en linux.
 #### crear archivo
-  ```
-> touch docker-compose.yml
-  ```
- 
+>
+```
+touch docker-compose.yml
+```
+ >
 ___________________________________________________________________________
 ## Paso 2. Editar el archivo docker-compose.yml y colocar el siguiente script:
 
