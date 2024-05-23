@@ -1,19 +1,19 @@
-CREAR CONTENEDOR DE MONGO Y SUBIRLO A DOCKERHUB
+# CREAR CONTENEDOR DE MONGO Y SUBIRLO A DOCKERHUB
 _____________________________________________
-Paso 1. Crear un documento de docker-compose.
+## Paso 1. Crear un documento de docker-compose.
 
-Opción 1 windows o mac.
+### Opción 1 windows o mac.
 
 > Usar docker compose, visual estudio code, instalando la extensión de docker.
 
-Opción 2 en linux.
-#crear archivo
-> touch docker-compose.yml 
+### Opción 2 en linux.
+#### crear archivo
+>  ´´´touch docker-compose.yml´´´
  
 ___________________________________________________________________________
-Paso 2. Editar el archivo docker-compose.yml y colocar el siguiente script:
+## Paso 2. Editar el archivo docker-compose.yml y colocar el siguiente script:
 
-# Editar archivo
+## Editar archivo
 
 > nano docker-compose.yml 
 
