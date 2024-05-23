@@ -8,17 +8,16 @@ _____________________________________________
 
 ### Opción 2 en linux.
 #### crear archivo
->
+
 ```
 touch docker-compose.yml
 ```
- >
 ___________________________________________________________________________
 ## Paso 2. Editar el archivo docker-compose.yml y colocar el siguiente script:
 
 ## Editar archivo
 
-> nano docker-compose.yml 
+``` nano docker-compose.yml ```
 
 version: '2.2'
 services:
